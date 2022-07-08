@@ -24,7 +24,7 @@ export default function Home() {
     {session && status === 'authenticated' ? <LoadingScreen/> 
     : 
     <div className="flex justify-center h-screen items-center">
-    <GoogleButton onClick={() => signIn("google", { callbackUrl: '/' }, { prompt: "login" })}/>
+    <GoogleButton onClick={() => signIn("google", { callbackUrl: process.env.NEXTAUTH_URL }, { prompt: "login" })}/>
     </div>
     }
     </>
