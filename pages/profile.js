@@ -3,7 +3,6 @@ import Layout from '../components/Layout/Layout'
 import WorkFlowCard from '../components/Cards/WorkFlowCard'
 import WelcomeCard from '../components/Cards/WelcomeCard'
 import axios from 'axios'
-import axiosAPIClient from '../constants/axiosAPIClient'
 
 export default function Profile() {
   // const { isLoading, error, data } = useQuery("screenshot", () => axios(`/api/userdetail/`))
