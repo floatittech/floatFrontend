@@ -23,7 +23,7 @@ export default function LayoutWorkFlow({children}) {
             else {
              router.push(router.asPath)
             }
-          }, [session, router])
+          }, [session])
 
         return (
             <div>
