@@ -5,7 +5,7 @@ import WelcomeCard from '../components/Cards/WelcomeCard'
 import axios from 'axios'
 import axiosAPIClient from '../constants/axiosAPIClient'
 
-export default function dashboard() {
+export default function Profile() {
   // const { isLoading, error, data } = useQuery("screenshot", () => axios(`/api/userdetail/`))
   
   // if (isLoading) return <h1>Is Loading......</h1>
@@ -27,7 +27,7 @@ export default function dashboard() {
   )
 }
 
-dashboard.getLayout = function getLayout(page) {
+Profile.getLayout = function getLayout(page) {
     return (
       <Layout>
         {page}

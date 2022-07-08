@@ -31,6 +31,7 @@ export default function WorkFlowCard() {
                 width={324} 
                 height={165} 
                 quality={90} 
+                alt="Screenshot"
                 //placeholder="blur"
                 //blurDataURL={items?.screen_shot[0]?.blurhash ? useNextBlurhash(items?.screen_shot[0]?.blurhash) : items?.screen_shot[0]?.screenshot}
                 />
@@ -73,6 +74,7 @@ export default function WorkFlowCard() {
                 className="h-8 w-8 rounded-full shadow-md" 
                 placeholder="blur"
                 blurDataURL={session?.user?.image}
+                alt="Profile Image"
                 />
                 </div>
                 <div>

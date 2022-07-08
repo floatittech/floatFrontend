@@ -30,6 +30,7 @@ export default function ScreenshotPreview(props) {
                   <Image
                   src={'https://cdnaws.vacancyjobalert.com/media/2022/June/77d246c2-4e4a-46f3-970f-d0ffde8a0212-3dfb47c082b84ded9df6cc8baaebcde6.png'}
                   layout="fill"
+                  alt='preview'
                   //className='object-contain'
                   />
                 </div>

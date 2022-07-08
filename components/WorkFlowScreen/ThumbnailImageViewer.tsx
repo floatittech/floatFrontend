@@ -56,6 +56,7 @@ export default function ThumbnailImageViewer(Props:ImageViewerProps) {
                 height={image[activeStep]?.screenshot_height}
                 //className="object-cover"
                 priority
+                alt='Thumbnail Image'
                 />
 
                 {/* HotSpot Ring Animation */}

@@ -107,7 +107,7 @@ export default function WorkFlowPreviewImage(Props:WorkFlowPreviewImageProps) {
         src={image[screenshotIndex]?.screenshot}
         width={image[screenshotIndex]?.screenshot_width}
         height={image[screenshotIndex]?.screenshot_height}
-        
+        alt="Preview Image"
         />
 
         {/* HotSpot Ring Animation */}

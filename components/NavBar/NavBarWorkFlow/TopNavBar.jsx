@@ -23,7 +23,7 @@ export default function TopNavBar() {
               {/* Back Arrow */}
               
               {/* <Link href={router.pathname.endsWith('preview') ? `/workfloat/${workflowId}` : "/workfloat"}><div className='absolute left-2 p-2 mx-4 px-4 rounded-md cursor-pointer'><BiLeftArrowAlt size={28}/></div></Link> */}
-              <Link href={router.pathname.endsWith('preview') ? `/workfloat/${workflowId}` : "/workfloat"}><div className='absolute left-2 p-2 mx-4 px-4 rounded-md cursor-pointer'><Icon icon="fluent:arrow-left-12-filled" width="22" height="22" /></div></Link>
+              <Link href={router.pathname.endsWith('preview') ? `/workfloat/${workflowId}` : "/workfloat"} passHref><div className='absolute left-2 p-2 mx-4 px-4 rounded-md cursor-pointer'><Icon icon="fluent:arrow-left-12-filled" width="22" height="22" /></div></Link>
 
               {/* My WorkFloat Text*/}
               <div className='font-semibold'>My WorkFloat</div>

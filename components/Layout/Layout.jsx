@@ -22,7 +22,7 @@ export default function Layout({children}) {
             else {
               router.push(router.asPath)
             }
-          }, [session])
+          }, [session, router])
 
         return (
             <div>

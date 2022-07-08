@@ -175,7 +175,7 @@ export default function ShareOptions(Props:ShareButtonProps) {
                                     <div className='flex items-center justify-between p-4'>
                                         {/* Embed Icon With Text On Left Side */}
                                         <div className='flex justify-center items-center space-x-2'>
-                                            <div className='inline-flex'><Image src={"/twitter-icon.svg"} width={30} height={30}/></div>
+                                            <div className='inline-flex'><Image src={"/twitter-icon.svg"} width={30} height={30} alt="twitter"/></div>
                                             <div className='items-center'>
                                                 <div>Share On Twitter</div>
                                                 <div className='text-xs font-thin'>Float Is Completely Interactive With Twitter</div>
@@ -186,7 +186,7 @@ export default function ShareOptions(Props:ShareButtonProps) {
                                         {/* <a target="_blank" href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(workflow?.screen_shot[0]?.metadata?.main_title)}&url=${process.env.NEXT_PUBLIC_FRONTEND_URL}/share/${workflowId}/&via=float`} rel="noreferrer"> */}
                                         
                                         <div className='bg-stone-200 py-2.5 px-5 rounded-md flex items-center shadow-inner space-x-1 cursor-pointer font-normal'>
-                                            <div className='inline-flex'><Image src={"/twitter-icon.svg"} width={12} height={12}/></div>
+                                            <div className='inline-flex'><Image src={"/twitter-icon.svg"} width={12} height={12} alt="tw" /></div>
                                             <div>Tweet</div>
                                         </div>
                                         </a>

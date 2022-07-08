@@ -9,7 +9,7 @@ import ScreenShotRightNavBar from '../../../components/WorkFlowScreen/ScreenShot
 import WorkFlowPreviewImage from '../../../components/WorkFlowScreen/WorkFlowPreviewImage'
 import useSWR, { useSWRConfig } from 'swr'
 
-export default function workflowid() {
+export default function WorkFlowId() {
   
   const [screenshotIndex, setScreenshotIndex] = useState(0)
   const router = useRouter()
@@ -85,7 +85,7 @@ export default function workflowid() {
   )
 }
 
-workflowid.getLayout = function getLayout(page) {
+WorkFlowId.getLayout = function getLayout(page) {
     return (
       <LayoutWorkFlow>
         {page}

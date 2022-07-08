@@ -33,6 +33,7 @@ export default function WorkFlowLeftSlider(Props : WorkFlowLeftSliderProps) {
           className="object-cover"
           placeholder="blur" 
           blurDataURL={"/logo.png"}
+          alt="slider Image"
         />
         {/* {console.log("logo.png", "akki blur")} */}
         

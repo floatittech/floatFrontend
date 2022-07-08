@@ -6,7 +6,7 @@ import WelcomeCard from '../../components/Cards/WelcomeCard'
 import Link from 'next/link'
 import LoadingScreen from '../../components/LoadingScreen'
 
-export default function collection() {
+export default function Collection() {
   // const {screenshot, isError, isLoading} = useScreenshot();
 
   // if (isLoading) return <LoadingScreen/>
@@ -20,7 +20,7 @@ export default function collection() {
   )
 }
 
-collection.getLayout = function getLayout(page) {
+Collection.getLayout = function getLayout(page) {
     return (
       <Layout>
         {page}
