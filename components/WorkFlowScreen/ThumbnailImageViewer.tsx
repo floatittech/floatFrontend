@@ -57,6 +57,7 @@ export default function ThumbnailImageViewer(Props:ImageViewerProps) {
                 //className="object-cover"
                 priority
                 alt='Thumbnail Image'
+                className='object-cover'
                 />
 
                 {/* HotSpot Ring Animation */}

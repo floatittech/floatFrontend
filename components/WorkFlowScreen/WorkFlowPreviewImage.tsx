@@ -108,6 +108,7 @@ export default function WorkFlowPreviewImage(Props:WorkFlowPreviewImageProps) {
         width={image[screenshotIndex]?.screenshot_width}
         height={image[screenshotIndex]?.screenshot_height}
         alt="Preview Image"
+        className='object-cover'
         />
 
         {/* HotSpot Ring Animation */}
