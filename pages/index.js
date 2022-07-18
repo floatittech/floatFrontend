@@ -18,6 +18,8 @@ export default function Home() {
   // if(session && status === 'authenticated'){
   //   router.push("/workfloat");
   // }
+
+  
   if(status === 'authenticated'){
     router.push("/workfloat");
   }
