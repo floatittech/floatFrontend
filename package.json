@@ -17,6 +17,7 @@
     "@tippyjs/react": "^4.2.6",
     "axios": "^0.26.0",
     "blurhash": "^1.1.5",
+    "csstype": "^3.1.0",
     "jsonwebtoken": "^8.5.1",
     "next": "^12.2.0",
     "next-auth": "^4.7.0",
