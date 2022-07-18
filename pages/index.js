@@ -18,6 +18,9 @@ export default function Home() {
   if(session && status === 'authenticated'){
     router.push("/workfloat");
   }
+  else if (loading) {
+    <LoadingScreen/>
+  }
 
   return (
     <>

@@ -17,12 +17,18 @@ export default function LayoutWorkFlow({children}) {
         //if(loading) return <LoadingScreen/>
 
         useEffect(() => {
-            if (!session) {
-             router.push('/') // redirects if there is no session
+            if (loading) {
+             <LoadingScreen/>
             }
-            else {
-             router.push(router.asPath)
+
+            else if (!session) {
+              router.push('/') // redirects if there is no session
+             }
+
+            else if (router.isReady) {
+              router.push(router.asPath)
             }
+            else null
           }, [session])
 
         return (
