@@ -15,16 +15,20 @@ export default function Home() {
 
   // if(loading) return <LoadingScreen/>
 
-  if(session && status === 'authenticated'){
+  // if(session && status === 'authenticated'){
+  //   router.push("/workfloat");
+  // }
+  if(status === 'authenticated'){
     router.push("/workfloat");
   }
   else if (loading) {
     <LoadingScreen/>
   }
+  else null
 
   return (
     <>
-    {session && status === 'authenticated' ? <LoadingScreen/> 
+    {status === 'authenticated' ? <LoadingScreen/> 
     : 
     <div className="flex justify-center h-screen items-center">
     <GoogleButton onClick={() => signIn("google", { callbackUrl: process.env.NEXTAUTH_URL }, { prompt: "login" })}/>
