@@ -129,6 +129,6 @@ export const authOptions: NextAuthOptions = {
 
 };
 
-export default function (req: NextApiRequest, res: NextApiResponse) {
+export default function customAuth(req: NextApiRequest, res: NextApiResponse) {
   NextAuth(req, res, authOptions);
 }
