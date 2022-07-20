@@ -16,20 +16,20 @@ export default function LayoutWorkFlow({children}) {
 
         //if(loading) return <LoadingScreen/>
 
-        useEffect(() => {
-            if (loading) {
-             <LoadingScreen/>
-            }
+        // useEffect(() => {
+        //     if (loading) {
+        //      <LoadingScreen/>
+        //     }
 
-            else if (!session) {
-              router.push('/') // redirects if there is no session
-             }
+        //     else if (!session) {
+        //       router.push('/') // redirects if there is no session
+        //      }
 
-            else if (router.isReady) {
-              router.push(router.asPath)
-            }
-            else null
-          }, [session])
+        //     else if (router.isReady) {
+        //       router.push(router.asPath)
+        //     }
+        //     else null
+        //   }, [session])
 
         return (
             <div>

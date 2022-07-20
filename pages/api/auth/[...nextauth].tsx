@@ -35,7 +35,7 @@ namespace NextAuthUtils {
 
 
 
-const settings: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
   // debug: true,
   providers: [
     GoogleProvider({
@@ -43,7 +43,7 @@ const settings: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
-  secret: process.env.SESSION_SECRET,
+  secret: process.env.NEXTAUTH_SECRET,
   
   session: {
     maxAge: 30 * 24 * 60 * 60, // 30 days
@@ -129,5 +129,6 @@ const settings: NextAuthOptions = {
 
 };
 
-export default (req: NextApiRequest, res: NextApiResponse) =>
-  NextAuth(req, res, settings);
+export default function (req: NextApiRequest, res: NextApiResponse) {
+  NextAuth(req, res, authOptions);
+}

@@ -9,32 +9,20 @@ import LoadingScreen from '../LoadingScreen';
 
 export default function Layout({children}) {
         const { data: session, status } = useSession()
-        const loading = status === 'loading'
         axios.defaults.headers.common['Authorization'] = `Bearer ${session?.accessToken}`;
         axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_BASE_URL
         const router = useRouter()
 
         //if(loading) return <LoadingScreen/>
 
-        useEffect(() => {
-          if (loading) {
-            <LoadingScreen/>
-           }
-
-          else if (!session) {
-             router.push('/') // redirects if there is no session
-            }
-
-          else if (router.isReady) {
-             router.push(router.asPath)
-           }
-          else null
-
-            // else {
-            //   router.push(router.asPath)
-            // }
-            
-          }, [session])
+        // useEffect(() => {
+        //     if (!session) {
+        //      router.push('/') // redirects if there is no session
+        //     }
+        //     else {
+        //       router.push(router.asPath)
+        //     }
+        //   }, [session])
 
         return (
             <div>
