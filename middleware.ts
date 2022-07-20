@@ -4,8 +4,11 @@ import { getToken } from "next-auth/jwt";
 
 
 export async function middleware(req : NextRequest) {
-    const session = await getToken({ req, secret: process.env.JWT_SECRET })
-    // console.log(session, "akki session");
+    const session = await getToken({ 
+        req, 
+        secret: process.env.JWT_SECRET, 
+        secureCookie: process.env.NODE_ENV === "production", })
+    //console.log(session, "akki session");
     if (!session) return  NextResponse.redirect(new URL("/", req.url));
     return NextResponse.next();
 }
