@@ -33,3 +33,5 @@ Profile.getLayout = function getLayout(page) {
       </Layout>
     )
   }
+
+Profile.auth = true;

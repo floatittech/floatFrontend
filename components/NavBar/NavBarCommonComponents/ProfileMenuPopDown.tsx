@@ -50,7 +50,7 @@ export default function ProfileMenuPopDown(Props: ProfileProps) {
                 <Menu.Item>
                     {({ active }) => (
                     <button
-                        onClick={() => signOut({ callbackUrl: '/' })} 
+                        onClick={() => signOut({ callbackUrl: `${process.env.NEXT_PUBLIC_FRONTEND_URL}/login` })} 
                         className={`${
                         active
                             ? "bg-violet-500 text-white font-semibold"

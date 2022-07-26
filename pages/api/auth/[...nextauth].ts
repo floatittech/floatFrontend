@@ -52,10 +52,26 @@ export const authOptions: NextAuthOptions = {
   jwt: {
     secret: process.env.JWT_SECRET,
   },
+  // callbacks: {
+  //   async jwt({ token, account, isNewUser, profile, user }) {
+  //     console.log(token, "akki auth token");
+  //     console.log(account, "akki auth account");
+  //     console.log(isNewUser, "akki auth isNewUser");
+  //     console.log(profile, "akki auth profile");
+  //     console.log(user, "akki auth user");
+      
+  //     token.userRole = "admin"
+  //     return token
+  //   },
+  // },
+  
+  pages: {
+    signIn: '/login', 
+  },
+
   callbacks: {
     async jwt({ token, user, account, profile, isNewUser }) {
-      
-      
+        
       if (user) {
         console.log(user, "akki user");
         console.log(account, "akki account");

@@ -38,3 +38,5 @@ Preview.getLayout = function getLayout(page) {
       </LayoutWorkFlow>
     )
   }
+
+Preview.auth = true;

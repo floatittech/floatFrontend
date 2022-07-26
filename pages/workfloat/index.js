@@ -27,3 +27,5 @@ Collection.getLayout = function getLayout(page) {
       </Layout>
     )
   }
+
+Collection.auth = true;

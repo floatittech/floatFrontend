@@ -93,6 +93,7 @@ WorkFlowId.getLayout = function getLayout(page) {
     )
   }
 
+WorkFlowId.auth = true;
 
       // <div className='flex w-auto justify-center items-center mt-5'>
       // {/* Screenshot Below */}

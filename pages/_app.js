@@ -4,6 +4,7 @@ import axios from 'axios'
 import { SWRConfig } from "swr";
 import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
+import { Auth } from '../components/auth';
 
 function MyApp({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page)
@@ -15,11 +16,19 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/logo.svg"/>
       </Head>
       <NextNProgress color='linear-gradient(to right, rgb(233, 213, 255), rgb(192, 132, 252), rgb(107, 33, 168))' />
+      
       <SessionProvider session={pageProps.session}>
-        <SWRConfig value={{revalidateOnFocus: false, revalidateIfStale: false, 
-        fetcher : async (url) => await axios.get(url).then((res) => res.data)}}>
-          {getLayout(<Component {...pageProps} />)}
-        </SWRConfig>
+        { Component.auth ? ( 
+          <Auth> 
+            <Component {...pageProps} />
+          </Auth> 
+          ) : (
+          <SWRConfig value={{revalidateOnFocus: false, revalidateIfStale: false, 
+          fetcher : async (url) => await axios.get(url).then((res) => res.data)}}>
+            {getLayout(<Component {...pageProps} />)}
+          </SWRConfig>
+          )
+        }
       </SessionProvider>
 
     </div>
