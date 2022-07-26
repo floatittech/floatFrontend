@@ -12,9 +12,10 @@ export function Auth({ children }) {
     useEffect(() => {
         if(!loading && !hasUser) {
             router.push("/login")
-        } else {
-            router.push('/workfloat')
-        }
+        } 
+        // else {
+        //     router.push('/workfloat')
+        // }
 
     }, [loading, hasUser]);
 

@@ -20,13 +20,13 @@ function MyApp({ Component, pageProps }) {
       <SessionProvider session={pageProps.session}>
         { Component.auth ? ( 
           <Auth> 
-            <Component {...pageProps} />
+            <SWRConfig value={{revalidateOnFocus: false, revalidateIfStale: false, 
+              fetcher : async (url) => await axios.get(url).then((res) => res.data)}}>
+                {getLayout(<Component {...pageProps} />)}
+            </SWRConfig>
           </Auth> 
           ) : (
-          <SWRConfig value={{revalidateOnFocus: false, revalidateIfStale: false, 
-          fetcher : async (url) => await axios.get(url).then((res) => res.data)}}>
-            {getLayout(<Component {...pageProps} />)}
-          </SWRConfig>
+          <Component {...pageProps} />
           )
         }
       </SessionProvider>
