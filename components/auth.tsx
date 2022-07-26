@@ -13,11 +13,11 @@ export function Auth({ children }) {
         if(!loading && !hasUser) {
             router.push("/login")
         } 
-        // else {
-        //     router.push('/workfloat')
-        // }
+        else {
+            router.push('/workfloat')
+        }
 
-    }, [loading, hasUser]);
+    }, [loading, hasUser, router]);
 
     if(loading || !hasUser) {
         return <LoadingScreen/>;
