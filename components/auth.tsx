@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router';
+import axios from 'axios'
 import LoadingScreen from './LoadingScreen';
 
 export function Auth({ children }) {
@@ -12,9 +13,9 @@ export function Auth({ children }) {
     useEffect(() => {
         if(!loading && !hasUser) {
             router.push("/login")
-        } 
-        else {
-            router.push('/workfloat')
+        } else {
+        axios.defaults.headers.common['Authorization'] = `Bearer ${session?.accessToken}`;
+        axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_BASE_URL
         }
 
     }, [loading, hasUser]);
