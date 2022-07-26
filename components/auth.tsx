@@ -13,12 +13,13 @@ export function Auth({ children }) {
     useEffect(() => {
         if(!loading && !hasUser) {
             router.push("/login")
-        } else {
+        }
+    }, [loading, hasUser]);
+
+    if(session) {
         axios.defaults.headers.common['Authorization'] = `Bearer ${session?.accessToken}`;
         axios.defaults.baseURL = process.env.NEXT_PUBLIC_BACKEND_API_BASE_URL
-        }
-
-    }, [loading, hasUser]);
+    }
 
     if(loading || !hasUser) {
         return <LoadingScreen/>;
