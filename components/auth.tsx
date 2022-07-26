@@ -17,7 +17,7 @@ export function Auth({ children }) {
             router.push('/workfloat')
         }
 
-    }, [loading, hasUser, router]);
+    }, [loading, hasUser]);
 
     if(loading || !hasUser) {
         return <LoadingScreen/>;
