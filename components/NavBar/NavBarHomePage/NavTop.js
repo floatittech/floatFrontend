@@ -1,7 +1,4 @@
 import React from "react";
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import Link from "next/link";
 import Image from "next/image";
 import { useSession, signOut } from "next-auth/react";
 import { useUser } from "../../APIHooks/ApiHooks";
@@ -10,15 +7,9 @@ import { Icon } from '@iconify/react';
 import {SmallLogo} from '../NavBarCommonComponents/Logo'
 
 export default function NavTop() {
-  const {user} = useUser();
-  const {data:session, status} = useSession();
 
   return (
-
-    <Disclosure as="nav" className=" z-10 mx-auto p-2.5 bg-transparent md:ml-64">
-      {({ open }) => (
-        <>
-          <div className=" max-w-7xl mx-auto px-1.5 sm:px-4 lg:px-6">
+          <div className=" max-w-7xl mx-auto px-1.5 sm:px-4 lg:px-6 bg-transparent">
             <div className="relative flex items-center justify-between h-16">
               {/* Mobile menu button*/}
               <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
@@ -61,10 +52,6 @@ export default function NavTop() {
               
             </div>
           </div>
-
-        </>
-      )}
-    </Disclosure>
   );
 }
 

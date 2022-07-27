@@ -7,7 +7,6 @@ import useSWR, { useSWRConfig } from 'swr'
 import axios from 'axios';
 import { Icon } from '@iconify/react';
 import { useWorkFlow } from '../../APIHooks/ApiHooks';
-import LoadingScreen from '../../LoadingScreen';
 
 interface ShareButtonProps{
     rounded? : string,
@@ -30,7 +29,7 @@ export default function ShareOptions(Props:ShareButtonProps) {
     // const router = useRouter()
     // const {workflowId} = router.query
     const {workflow, workflowisError, workflowisLoading, workFlowMutate} = useWorkFlow(workFlowId);
-    console.log(workflow, "akki workflow");
+    // console.log(workflow, "akki workflow");
     const [enabled, setEnabled] = useState(workFlowShare); // On/Off Button
     const textAreaRef = useRef(null);
     const shareTextAreaRef = useRef(null);

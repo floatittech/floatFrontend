@@ -9,17 +9,15 @@ import LoadingScreen from '../LoadingScreen';
 import { Icon } from '@iconify/react';
 
 export default function WorkFlowCard() {
-  const { data: session, status } = useSession()
-  const {workflow, workflowisError, workflowisLoading, workFlowMutate} = useWorkFlow();
-  const {user} = useUser();
-
-   if (workflowisLoading) return <LoadingScreen/>
-   if (workflowisError) return <h1>Error</h1>
+  const { data: session } = useSession()
+  const { workflow } = useWorkFlow();
+  const { user } = useUser();
 
   return (
-    <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center'>
+    <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center h-auto pt-1.5'>
       {workflow && workflow.map((items, index) => (
-        <div  key={index}>
+        <div key={index}>
+
           <div className='mt-4 w-72 bg-white rounded-xl overflow-hidden p-2.5 shadow-inner'>
             <Link href={`/workfloat/${items?.id}`}>
               <a>

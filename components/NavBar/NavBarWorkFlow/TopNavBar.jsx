@@ -14,7 +14,6 @@ export default function TopNavBar() {
     const {workflowId} = router.query
     const { workflow, workflowisError, workflowisLoading } = useWorkFlow(workflowId);
 
-    if (workflowisLoading) return <LoadingScreen/>
     if (workflowisError) return <h1>Error</h1>
 
   return (

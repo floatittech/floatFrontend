@@ -3,17 +3,20 @@ import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import WorkFlowCard from '../../components/Cards/WorkFlowCard'
 import WelcomeCard from '../../components/Cards/WelcomeCard'
-import Link from 'next/link'
+import { useWorkFlow } from '../../components/APIHooks/ApiHooks'
 import LoadingScreen from '../../components/LoadingScreen'
+import Error500 from '../../components/NoDataORErrorPage/500';
 
 export default function Collection() {
-  // const {screenshot, isError, isLoading} = useScreenshot();
+  const {workflowisLoading, workflowisError, workflow} = useWorkFlow();
 
-  // if (isLoading) return <LoadingScreen/>
-  // if (isError) return <h1 className='rounded-md text-center shadow-inner bg-rose-100 font-bold text-rose-500'>Error While Fetching Data. Please Check Console Log For More Info.</h1>
-
+  if (workflowisLoading) return <LoadingScreen/>
+  console.log(workflow == 0, "akki check");
+  if (workflow == 0) return <div className='pt-52 flex justify-center items-center'>No WorkFlow Found. Create a workflow By Going To Top Right Then Install Float Chrome Extension and Start Recording.</div>
+  if (workflowisError) return <div className='pt-40'><Error500/></div>
+  // <h1 className='rounded-md text-center shadow-inner bg-rose-100 font-bold text-rose-500'>Error While Fetching Data. Please Check Console Log For More Info.</h1>
   return (
-      <div>
+      <div className='py-4'>
         <WelcomeCard />
         <WorkFlowCard/>
       </div>

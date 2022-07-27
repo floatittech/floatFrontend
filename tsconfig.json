@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/workfloat/[workflowId]/index.tsx", "components/WorkFlowScreen/WorkFlowPreviewImage.tsx", "pages/share/[workflowId]/index.js", "components/APIHooks/ApiHooks.jsx", "components/WorkFlowScreen/ThumbnailImageViewer.jsx"  ],
+, "pages/workfloat/[workflowId]/index.tsx", "components/WorkFlowScreen/WorkFlowPreviewImage.tsx", "pages/share/[workflowId]/index.js", "components/APIHooks/ApiHooks.jsx", "components/WorkFlowScreen/ThumbnailImageViewer.jsx", "components/ErrorPage/404.jsx"  ],
   "exclude": [
     "node_modules"
   ]
