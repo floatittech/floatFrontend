@@ -1,4 +1,3 @@
-import GoogleButton from 'react-google-button'
 import { signIn, useSession, getProviders , getSession } from "next-auth/react"
 import { useRouter } from "next/router";
 import LoadingScreen from '../components/LoadingScreen';
@@ -23,6 +22,7 @@ export default function Login({providers}) {
           src={'/logo-float.svg'}
           height={43}
           width={133}
+          alt="login"
           />
         </div>
         <div className='text-2xl mb-14 font-medium'>Log in to Float</div>

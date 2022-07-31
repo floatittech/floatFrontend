@@ -6,13 +6,14 @@ import WelcomeCard from '../../components/Cards/WelcomeCard'
 import { useWorkFlow } from '../../components/APIHooks/ApiHooks'
 import LoadingScreen from '../../components/LoadingScreen'
 import Error500 from '../../components/NoDataORErrorPage/500';
-import NoData from '../../components/NoDataORErrorPage/NoData';
 
 export default function Collection() {
   const {workflowisLoading, workflowisError, workflow} = useWorkFlow();
 
   if (workflowisLoading) return <LoadingScreen/>
-  if (workflow == 0) return <NoData/>
+  if (workflow == 0) return <div className='pt-52 flex justify-center items-center'>
+  No WorkFlow Found. Create a workflow By Going To Top Right Then Install Float Chrome Extension and Start Recording.
+  </div>
   if (workflowisError) return <div className='pt-40'><Error500/></div>
   // <h1 className='rounded-md text-center shadow-inner bg-rose-100 font-bold text-rose-500'>Error While Fetching Data. Please Check Console Log For More Info.</h1>
   return (
