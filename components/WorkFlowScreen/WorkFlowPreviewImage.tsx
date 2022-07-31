@@ -3,10 +3,6 @@ import Image from 'next/image'
 import { Icon } from '@iconify/react';
 import { Rings } from  'react-loader-spinner'
 import useNextBlurhash from "use-next-blurhash";
-import { useWorkFlow } from '../APIHooks/ApiHooks';
-import { useRouter } from 'next/router'
-import HotspotPopperModal from '../HotspotPopper/HotspotPopperModal';
-import { usePopper } from 'react-popper';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
@@ -17,72 +13,13 @@ interface WorkFlowPreviewImageProps{
 }
 
 export default function WorkFlowPreviewImage(Props:WorkFlowPreviewImageProps) {
-  const { image, screenshotIndex} = Props;
-
-    const [visible, setVisible] = useState(false);
-
-    const [referenceElement, setReferenceElement] = useState(null);
-    const [popperElement, setPopperElement] = useState(null);
-    const [arrowElement, setArrowElement] = useState(null);
-    const { styles, attributes } = usePopper(referenceElement, popperElement, {
-        modifiers: [{ name: 'arrow', options: { element: arrowElement } }],
-    });
-
-    const router = useRouter()
-    const {workflowId} = router.query
-    const {workflow, workflowisError, workflowisLoading} = useWorkFlow(workflowId);
-    const [clientCoord, setClientCoord] = useState();
-    // console.log(workflow.screen_shot[0].metadata.coords.x, "akki work")
-    // const x = (props.coordsX * 100) / clientCoord?.naturalWidth
-    // const x = (props.coordsX * 100) / clientCoord?.naturalWidth
-    // const y = (props.coordsY * 100) / clientCoord?.naturalHeight
-    // console.log(window.innerWidth, "akki window.innerWidth");
-    // console.log(window.innerHeight, "akki window.innerHeight");
-    // const [width, setWidth] = useState(0);
-    // const handleResize = () => setWidth(window.innerWidth);
-    // useEffect(() => {
-    //     window.addEventListener('resize', handleResize);
-    //     return () => window.removeEventListener('resize', handleResize);
-    //   }, [width]);
-      
-    const targetRef = useRef();
-    const [dimensions, setDimensions] = useState({ width:0, height: 0 });
-    
-    const [width, setWidth] = useState(0);
-    const [height, setHeight] = useState(0);
-    // const handleResize = () => {
-    //     setWidth(window.innerWidth);
-    //     setHeight(window.innerHeight);
-    //     if (targetRef.current) {
-    //         setDimensions({
-    //           width: targetRef.current.offsetWidth,
-    //           height: targetRef.current.offsetHeight
-    //         });
-    //       }
-    // }
-
-    // useLayoutEffect(() => {
-    //         window.addEventListener('resize', handleResize);
-    //         return () => window.removeEventListener('resize', handleResize);
-    //   }, [width, height]);
-
-    
+    const { image, screenshotIndex} = Props;  
       const [activeStep, setActiveStep] = useState(0)
       //console.log(image, "akk src")
       const goToNextPicture = () => {
           setActiveStep((prevActiveStep) => prevActiveStep + 1);
         };
   
-      const clientX = image[screenshotIndex].metadata.coords[0].x/image[screenshotIndex].screenshot_width * 100
-      const clientY = image[screenshotIndex].metadata.coords[0].y/image[screenshotIndex].screenshot_height * 100
-      console.log(clientX, " clientX");
-      console.log( clientY, " clientY");
-      // console.log(image[activeStep].screenshot_width, " screenshot_width");
-      // console.log( image[activeStep].screenshot_height, " screenshot_height");
-      // console.log( image[activeStep].metadata.coords[0].x, " image original coord X");
-      // console.log( image[activeStep].metadata.coords[0].y, " image original coord Y");
-      // console.log( image, " image ");
-
   return (
     <div className='flex flex-col'>
 
@@ -109,10 +46,11 @@ export default function WorkFlowPreviewImage(Props:WorkFlowPreviewImageProps) {
         height={image[screenshotIndex]?.screenshot_height}
         alt="Preview Image"
         className='object-cover'
+        priority
         />
 
         {/* HotSpot Ring Animation */}
-        <div style={{ top: `${clientY}%`, left:`${clientX}%`}}  className={`${activeStep === image.length - 1 ? 'hidden' : "flex justify-center items-center absolute cursor-pointer z-20 w-0 h-0 transition-all transform-gpu duration-700 ease-in-out delay-100 "}`}>
+        <div style={{ top: `${image[screenshotIndex].metadata.coords[0].y}%`, left:`${image[screenshotIndex].metadata.coords[0].x}%`}}  className={`${activeStep === image.length - 1 ? 'hidden' : "flex justify-center items-center absolute cursor-pointer z-20 w-0 h-0 transition-all transform-gpu duration-700 ease-in-out delay-100 "}`}>
             <Rings ariaLabel="loading-indicator" color='#643DFE' />
         </div>
 

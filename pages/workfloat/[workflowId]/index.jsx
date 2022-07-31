@@ -7,7 +7,8 @@ import { useWorkFlow } from '../../../components/APIHooks/ApiHooks'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import ScreenShotRightNavBar from '../../../components/WorkFlowScreen/ScreenShotRightNavBar'
 import WorkFlowPreviewImage from '../../../components/WorkFlowScreen/WorkFlowPreviewImage'
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR, { useSWRConfig } from 'swr';
+import Error404 from '../../../components/NoDataORErrorPage/Error404';
 
 export default function WorkFlowId() {
   
@@ -36,7 +37,7 @@ export default function WorkFlowId() {
   }
 
   if (workflowisLoading) return <LoadingScreen/>
-  if (workflowisError) return <h1>Error</h1>
+  if (workflowisError) return <Error404/>
   //console.log(workflow?.screen_shot, " akki workflow?.screen_shot")
 
   return (

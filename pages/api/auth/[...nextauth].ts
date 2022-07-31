@@ -141,6 +141,7 @@ export const authOptions: NextAuthOptions = {
       //session.userId = token.
       return session
     }
+    
   }
 
 };

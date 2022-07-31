@@ -9,7 +9,7 @@ export default function Layout({children}) {
               <div>
                 <Head><title>Dashboard - Trelo</title></Head>
                 <NavLeft/>
-                <div className='pt-2 md:ml-64 m-auto'>
+                <div className='md:ml-52 m-auto'>
                 <NavTop/>
                   <div className=''>{children}</div>
                 </div>

@@ -7,13 +7,13 @@ export const NavData = [
     //     link : "/dashboard"
     // },
     {
-        title : "My WorkFloat",
-        icon : <Icon icon="bx:category-alt" width="24" height="24" />,
+        title : "Dashboard",
+        icon : <Icon icon="radix-icons:dashboard" width="22" height="22" />,
         link : "/workfloat"
     },
     {
         title : "Profile",
-        icon : <Icon icon="bx:user" width="24" height="24" />,
+        icon : <Icon icon="bx:user" width="22" height="22" />,
         link : "/profile"
     },
 ]

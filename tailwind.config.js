@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -17,6 +18,7 @@ module.exports = {
       },
       fontFamily: {
         'Nunito': ['Nunito'],
+        'DM-Sans': ['DM+Sans:wght@400;500;700'],
        },
       colors:{
         primary_Blue_light : 'rgba(84, 41, 255, 0.1)',

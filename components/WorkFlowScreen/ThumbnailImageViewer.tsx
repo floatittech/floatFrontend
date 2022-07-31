@@ -13,21 +13,13 @@ export default function ThumbnailImageViewer(Props:ImageViewerProps) {
     const { image, srcHeight, srcWidth} = Props;
 
     const [activeStep, setActiveStep] = useState(0)
-    //console.log(image, "akk src")
     const goToNextPicture = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
       };
 
     const targetRef = useRef();
-
-    const clientX = image[activeStep].metadata.coords[0].x/image[activeStep].screenshot_width * 100
-    const clientY = image[activeStep].metadata.coords[0].y/image[activeStep].screenshot_height * 100
-    console.log(clientX, " clientX");
-    console.log( clientY, " clientY");
-    console.log(image[activeStep].screenshot_width, " screenshot_width");
-    console.log( image[activeStep].screenshot_height, " screenshot_height");
-    console.log( image[activeStep].metadata.coords[0].x, " image original coord X");
-    console.log( image[activeStep].metadata.coords[0].y, " image original coord Y");
+    // const clientX = image[activeStep].metadata.coords[0].x/image[activeStep].screenshot_width * 100
+    // const clientY = image[activeStep].metadata.coords[0].y/image[activeStep].screenshot_height * 100
 
   return (
         <div className='flex flex-col'>
@@ -62,13 +54,13 @@ export default function ThumbnailImageViewer(Props:ImageViewerProps) {
 
                 {/* HotSpot Ring Animation */}
                 {/* <div onClick={goToNextPicture} style={{ top: `${clientY}%`, left:`${clientX}%`}} className='absolute h-5 w-5 bg-green-500 rounded-full z-20'/> */}
-                <div onClick={goToNextPicture} style={{ top: `${clientY}%`, left:`${clientX}%`}}  className={`${activeStep === image.length - 1 ? 'hidden' : "absolute top-0 left-0 flex justify-center items-center  cursor-pointer z-20 w-0 h-0 transition-all transform-gpu duration-700 ease-in-out delay-100 "}`}>
+                <div onClick={goToNextPicture} style={{ top: `${image[activeStep].metadata.coords[0].y}%`, left:`${image[activeStep].metadata.coords[0].x}%`}}  className={`${activeStep === image.length - 1 ? 'hidden' : "absolute top-0 left-0 flex justify-center items-center  cursor-pointer z-20 w-0 h-0 transition-all transform-gpu duration-700 ease-in-out delay-100 "}`}>
                     <Rings ariaLabel="loading-indicator" color='#643DFE' />
                 </div>
 
                 {/* Replay Demo Button */}
                 <div className={`${activeStep === image.length - 1 ? 'absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-60' : 'hidden' }`}>
-                    <div onClick={() => setActiveStep(0)} className='flex cursor-pointer items-center justify-center space-x-1 z-50 font-semibold px-4 py-2 text-sm text-indigo-500 bg-indigo-100
+                    <div onClick={() => setActiveStep(0)} className='flex cursor-pointer items-center justify-center space-x-1 z-20 font-semibold px-4 py-2 text-sm text-indigo-500 bg-indigo-100
                     transition-colors duration-300 border-2 border-indigo-400 rounded-full shadow-indigo-300/30 hover:bg-indigo-500 hover:text-indigo-100'>
                         <Icon icon="material-symbols:replay-circle-filled" width="24" height="24" />
                         <div>Replay Demo</div>
@@ -79,59 +71,3 @@ export default function ThumbnailImageViewer(Props:ImageViewerProps) {
         </div>
   )
 }
-
-
-            // <div className="relative aspect-w-2  rounded-b-xl shadow-inner overflow-hidden" >
-
-            // <Image 
-            // src={src[activeStep]?.screenshot}
-            // layout="responsive"
-            // width={width} 
-            // height={height}
-            // //layout="fill"
-            // className="object-contain"
-            // priority
-            // />
-            // <div onClick={goToNextPicture}  className={`${activeStep === src.length - 1 ? 'hidden' : "absolute top-0 z-50 cursor-pointer transition-all"}`}>
-            //     <Rings ariaLabel="loading-indicator" color='#643DFE' />
-            // </div>
-            // {/* HotSpot Ring Animation */}
-            // {/* <div onClick={goToNextPicture} className={`${activeStep === src.length - 1 ? 'hidden' : 'absolute bg-green-500 cursor-pointer z-50 w-20 h-20 transition-all' }`}>
-            //     <Rings ariaLabel="loading-indicator" color='#643DFE' />
-            // </div> */}
-
-            // {/* Replay Demo Button */}
-            // <div className={`${activeStep === src.length - 1 ? 'absolute flex items-center justify-center bg-gray-900 bg-opacity-60' : 'hidden' }`}>
-            //     <div onClick={() => setActiveStep(0)} className='flex cursor-pointer items-center justify-center space-x-1 z-50 font-semibold px-4 py-2 text-sm text-indigo-500 bg-indigo-100
-            //     transition-colors duration-300 border-2 border-indigo-400 rounded-full shadow-indigo-300/30 hover:bg-indigo-500 hover:text-indigo-100'>
-            //     <Icon icon="material-symbols:replay-circle-filled" width="24" height="24" />
-            //     <div>Replay Demo</div>
-            //     </div>
-            // </div>
-
-            // {/* Float WaterMark */}
-            // <div className={`${activeStep === src.length - 1 ? 'absolute ' : 'hidden' }`}>
-            // <Tippy arrow={true} interactiveBorder={40} placement='left' content={<div className='text-xxs rounded-sm text-white px-1.5 p-0.5 backdrop-invert-0 bg-white/20'>Made With Float</div>} >
-            //     <div className='absolute flex items-center justify-center cursor-pointer shadow-inner right-4 bottom-2 z-50 font-semibold transition-all animate-pulse'>
-            //     <a href='https://www.addfloat.com/'>
-            //         <Image
-            //         src='/logo.svg'
-            //         width={30}
-            //         height={30}
-            //         />
-            //     </a>
-            //     </div>
-            // </Tippy> 
-            // </div>
-
-            // </div>
-
-                {/* {src.map((img, index) => 
-                <Image 
-                src={img.screenshot}
-                layout="responsive"
-                width={width} 
-                height={height}
-                priority
-                />
-                )}  */}

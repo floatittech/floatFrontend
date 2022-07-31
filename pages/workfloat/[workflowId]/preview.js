@@ -5,8 +5,7 @@ import ThumbnailImageViewer from '../../../components/WorkFlowScreen/ThumbnailIm
 import LoadingScreen from '../../../components/LoadingScreen'
 import { useSession } from 'next-auth/react';
 import { useWorkFlow } from '../../../components/APIHooks/ApiHooks'
-import Error from 'next/error'
-import Tippy from '@tippyjs/react';
+import Error500 from '../../../components/NoDataORErrorPage/500'
 // import 'tippy.js/dist/tippy.css';
 
 export default function Preview() {
@@ -14,14 +13,9 @@ export default function Preview() {
     const router = useRouter()
     const {workflowId} = router.query
     const { workflow, workflowisError, workflowisLoading } = useWorkFlow(workflowId)
-    const [activeStep, setActiveStep] = useState(0)
-    
-    const goToNextPicture = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      };
 
     if (workflowisLoading) return <LoadingScreen/>
-    if (workflowisError) return <Error title='Error While Fetching Data'/>
+    if (workflowisError) return <Error500/>
 
   return (
       <div className='w-full mx-auto py-4 px-32'>

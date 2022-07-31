@@ -10,15 +10,17 @@ import { Icon } from '@iconify/react';
 
 export default function WorkFlowCard() {
   const { data: session } = useSession()
-  const { workflow } = useWorkFlow();
+  const { workflow, workflowisLoading } = useWorkFlow();
   const { user } = useUser();
 
+  if (workflowisLoading) return <LoadingScreen/>
+
   return (
-    <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 justify-items-center h-auto pt-1.5'>
+    <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-items-center h-auto '>
       {workflow && workflow.map((items, index) => (
         <div key={index}>
 
-          <div className='mt-4 w-72 bg-white rounded-xl overflow-hidden p-2.5 shadow-inner'>
+          <div className='mt-6 w-60 bg-white rounded-lg overflow-hidden p-2 shadow-inner'>
             <Link href={`/workfloat/${items?.id}`}>
               <a>
                 {/* Image Area */}
@@ -45,7 +47,7 @@ export default function WorkFlowCard() {
 
                 {/* Total Steps In WorkFlow */}
                 <div className='flex items-center absolute bottom-1 left-1 p-1 px-1.5 rounded-full 
-                bg-gradient-to-r from-slate-500 to-slate-600 text-white space-x-1 text-xs shadow-lg'>
+                bg-gradient-to-r from-slate-400 to-slate-500 text-white space-x-1 text-xs shadow-lg bg-transparent'>
                   <div><Icon icon="lucide:clock-3" width="14" height="14" inline={true} /></div>
                   <div>{items.screen_shot?.length} Steps</div>
                 </div>
@@ -53,7 +55,7 @@ export default function WorkFlowCard() {
                 </div>
 
                 {/* User Name Below Image */}
-                <div className='flex justify-between items-center my-3.5 font-semibold '>
+                <div className='flex justify-between font-bold items-center my-3.5 text-sm '>
                   <div className='truncate'>{items.screen_shot[0]?.metadata?.main_title}</div>
                   <div><Icon icon="entypo:dots-three-vertical" width="14" height="14" /></div>
                   {/* <div><BiDotsVerticalRounded /></div> */}
@@ -83,8 +85,8 @@ export default function WorkFlowCard() {
               
               <div>
                 <ShareOptions workFlowId={items?.id} workFlowTitle={items.screen_shot[0]?.metadata?.main_title}  workFlowShare={items?.share}
-                rounded='rounded-full' bgColor='bg-gradient-to-r from-purple-50 to-purple-100'
-                 textColor='text-purple-600' iconSize={14} textSize="text-xs" fontSize='font-bold'  />
+                rounded='rounded-full' bgColor='bg-purple-100'
+                 textColor='text-purple-900' iconSize={14} textSize="text-xs" fontSize='font-bold'  />
               </div>
             </div>  
           </div>

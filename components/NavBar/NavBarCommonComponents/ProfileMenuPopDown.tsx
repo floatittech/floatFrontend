@@ -21,8 +21,8 @@ export default function ProfileMenuPopDown(Props: ProfileProps) {
             <div>
             <Menu.Button className="flex text-sm pl-2">
                 {/* Profile Image With text */}
-                <div className={`flex justify-center items-center space-x-2 pr-1.5 pl-3 py-1 ${bgColor} font-semibold rounded-full shadow-sm`}>
-                  <div className={`${textColor} text-xs w-16 truncate capitalize`}>Hi, {session?.user?.name}</div>
+                {/* <div className={`flex justify-center items-center space-x-2 pr-1.5 pl-3 py-1 ${bgColor} font-semibold rounded-full shadow-sm`}>
+                  <div className={`${textColor} text-xs w-16 truncate capitalize`}>Hi, {session?.user?.name}</div> */}
                   <div className='flex justify-center'>
                       <Image 
                       src={session?.user?.image} 
@@ -31,7 +31,7 @@ export default function ProfileMenuPopDown(Props: ProfileProps) {
                       alt="user name"
                       className='object-cover rounded-full' />
                   </div>
-                </div>
+                {/* </div> */}
             </Menu.Button>
             </div>
 
